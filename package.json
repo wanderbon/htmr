@@ -47,7 +47,8 @@
   "homepage": "https://github.com/pveyes/htmr#readme",
   "dependencies": {
     "html-entities": "^1.2.1",
-    "htmlparser2": "^3.10.1"
+    "htmlparser2": "^3.10.1",
+    "react-native-html-parser": "https://github.com/wanderbon/react-native-html-parser.git"
   },
   "peerDependencies": {
     "react": "^15.6.1 || ^16.0.0"
