@@ -4,6 +4,10 @@ import React, { ReactNode } from 'react';
 import mapAttribute, { RawAttributes } from './mapAttribute';
 import { HtmrOptions, HTMLTags } from './types';
 
+const DOMImplementation = require('react-native-html-parser').DOMImplementation
+
+const dom = new DOMImplementation().createDocument('', '', '')
+
 // https://developer.mozilla.org/en-US/docs/Web/API/Node.nodeType
 const NodeTypes = {
   ELEMENT: 1,
@@ -13,7 +17,7 @@ const NodeTypes = {
 
 const TABLE_ELEMENTS = ['table', 'tbody', 'thead', 'tfoot', 'tr'];
 
-const tempEl = document.createElement('div');
+const tempEl = dom.createElement('div');
 function unescape(str: string): string {
   // Here we use innerHTML to unescape html entities.
   // This is okay because we use the returned value as react children
@@ -110,7 +114,7 @@ function convertBrowser(
     preserveAttributes: options.preserveAttributes || [],
     dangerouslySetChildren: options.dangerouslySetChildren || ["style"]
   };
-  const container = document.createElement('div');
+  const container = dom.createElement('div');
   container.innerHTML = html.trim();
 
   const childNodes = [];
